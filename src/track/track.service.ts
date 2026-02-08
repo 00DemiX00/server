@@ -24,7 +24,7 @@ export class TrackService {
         return tracks;
     }
     
-    async getOne(id: ObjectId): Promise<Track> {
+    async getOne(id: ObjectId): Promise<Track | null> {
         const track = await this.trackModel.findById(id);
         return track;
     }
