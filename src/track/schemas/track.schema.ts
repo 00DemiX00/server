@@ -1,7 +1,6 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { Document } from "mongoose";
-import * as mongoose from 'mongoose'
-
+import { Document, Types } from "mongoose";
+import * as mongoose from 'mongoose';
 
 export type TrackDocument = Track & Document;
 
@@ -26,7 +25,7 @@ export class Track {
     audio: string;
 
     @Prop({type:[{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}]})
-    comments: Comment[];
+    comments: Types.ObjectId[];
 }
 
 export const TrackSchema = SchemaFactory.createForClass(Track);
